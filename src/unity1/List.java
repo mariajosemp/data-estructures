@@ -129,6 +129,32 @@ public class List {
     }
     public void duplicatemirror(){
         
+    } 
+    
+    public void ReversPrint(){
+        if (head == null) return;
+        Node ok = null, aux;
+        do {
+            aux = head;
+            while (aux.next != ok){
+                aux=aux.Next;
+            }
+            System.out.print(" "+ aux.data);
+            ok=aux;
+        }while (ok!=head);
+         
+    }
+    
+    public void Invert (){
+        if (head== null) return;
+        
+        Node aux= head, head2 = null;
+        while (head!=null){
+            aux=head;
+            head=head.next;
+            aux.Next=head2;
+            head2=aux;
+        }
+        head=head2;
     }
 }
-
