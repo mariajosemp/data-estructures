@@ -141,7 +141,7 @@ public class List {
         Node ok = null, aux;
         do {
             aux = head;
-            while (aux.next != ok){
+            while (aux.Next != ok){
                 aux=aux.Next;
             }
             System.out.print(" "+ aux.data);
@@ -174,7 +174,7 @@ public class List {
     }
     
     
-    public void Duplicarintercalado(){
+    public void Duplicateintercalete(){
         for(int i=0; i<c; i++){
             Node n=new Node(aux.data);
             n.Next=aux.Next;
@@ -183,7 +183,7 @@ public class List {
         }
     }
     
-    public void BorrarDuplicados(){
+    public void DeleteDuplicate(){
         Node p,aux = null,back=head;
         
         while(aux.Next!=null){
