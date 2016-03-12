@@ -11,18 +11,21 @@ package unity1;
  */
 public class List {
 
-    private Node header;
+    private Node head;
+    private Node aux;
+    private int c;
+    private Node p;
 
     public List() {
-        header = null;
+        head = null;
     }
 
     public void add(int d) {
         Node n = new Node(d);
-        if (header == null) {
-            header = n;
+        if (head == null) {
+            head = n;
         } else {
-            Node aux = header;
+            Node aux = head;
             while (aux.Next != null) {
                 aux = aux.Next;
             }
@@ -31,7 +34,7 @@ public class List {
     }
 
     public void print() {
-        Node aux = header;
+        Node aux = head;
         while (aux != null) {
             System.out.print(" " + aux.data);
             aux = aux.Next;
@@ -41,12 +44,12 @@ public class List {
     }
 
     public int remove(int i) {
-        if (header == null) {
+        if (head == null) {
 
         } else if (i == 0) {
-            header = header.Next;
+            head = head.Next;
         }
-        Node aux = header, p = null;
+        Node aux = head, p = null;
         int counter = 0;
         for (; counter < i && aux != null; counter++) {
             p = aux;
@@ -60,17 +63,16 @@ public class List {
     }
 
     public void removefirstelement() {
-        if (header == null) {
+        if (head == null) {
             return;
         } else {
-            header = header.Next;
+            head = head.Next;
         }
-
     }
 
     public void removelastelement() {
 
-        Node aux = header;
+        Node aux = head;
         Node p = null;
         while (aux.Next != null) {
             p = aux;
@@ -80,31 +82,30 @@ public class List {
     }
 
     public int count() {
-        Node aux = header;
+        Node aux = head;
         int counter = 0;
         while (aux != null) {
             counter++;
             aux = aux.Next;
         }
         return counter;
-
     }
 
+    
     public void printFirstElement() {
-        if (header == null) {
+        if (head == null) {
             System.out.println("-1");
         } else {
-            System.out.println("The first value is: " + header.data);
+            System.out.println("The first value is: " + head.data);
         }
-
     }
 
+    
     public void printLastElement() {
-        if (header == null) {
+        if (head == null) {
             System.out.println("-1");
         } else {
-            Node aux = header;
-
+            Node aux = head;
             while (aux.Next != null) {
                 aux = aux.Next;
             }
@@ -112,11 +113,12 @@ public class List {
         }
     }
 
+    
     public void duplicate() {
-        if (header == null) {
+        if (head == null) {
             return;
         }
-        Node last = header,aux=header;
+        Node last = head,aux=head;
         while (last.Next != null) {
             last = last.Next;
         }
@@ -127,9 +129,12 @@ public class List {
             last=last.Next;
         }
     }
+    
+    
     public void duplicatemirror(){
         
     } 
+    
     
     public void ReversPrint(){
         if (head == null) return;
@@ -141,20 +146,61 @@ public class List {
             }
             System.out.print(" "+ aux.data);
             ok=aux;
-        }while (ok!=head);
-         
+        }while (ok!=head);     
     }
     
+    
     public void Invert (){
-        if (head== null) return;
-        
+        if (head== null) return;    
         Node aux= head, head2 = null;
         while (head!=null){
             aux=head;
-            head=head.next;
+            head=head.Next;
             aux.Next=head2;
             head2=aux;
         }
         head=head2;
     }
+    
+    
+    public void eliminarintercalado(){
+        for (int i=0; i<c; i++){
+            if(i%2==1){
+                p.Next=aux.Next;
+            }
+            p=aux;
+            aux=aux.Next;
+        }
+    }
+    
+    
+    public void Duplicarintercalado(){
+        for(int i=0; i<c; i++){
+            Node n=new Node(aux.data);
+            n.Next=aux.Next;
+            aux.Next=n;
+            aux=n.Next;
+        }
+    }
+    
+    public void BorrarDuplicados(){
+        Node p,aux = null,back=head;
+        
+        while(aux.Next!=null){
+            p=head;
+            while(p!=aux){
+                if(p.data==aux.data){
+                    back.Next=aux.Next;
+                }
+                p=p.Next;
+            }
+            back=aux;
+            aux=aux.Next;
+        }
+    }
+    
+    
+   
+    
+            
 }
