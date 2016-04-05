@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CircularList;
+package unity1.doubleCircularList;
 
 /**
  *
  * @author AULA1
  */
-public class Node {
-     protected int value;
-    protected Node next;
-    
-    public Node(int v){
-        
-        value = v;
-        next = this;
-        
-    }
+class i {
     
 }
